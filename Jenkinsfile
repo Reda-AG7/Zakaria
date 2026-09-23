@@ -3,6 +3,12 @@ pipeline {
 
     stages {
         stage("build") {
+            when {
+                expression {
+                    BRANCH_NAME == 'dev'
+                }
+            }
+
             step {
                 echo 'Building the application'
             }
@@ -18,6 +24,16 @@ pipeline {
             step {
                 echo 'Deploying the application'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'App is built, tested abd deployed successfully'
+        }
+
+        failure {
+            echo 'App failed to be built, tested or deployed'
         }
     }
 } 
