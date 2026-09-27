@@ -1,5 +1,5 @@
-#ifndef __Account.HPP__
-#define __Account .HPP__
+#ifndef __Account_HPP
+#define __Account_HPP
 #include <iostream>
 #include <uuid/uuid.h>
 
