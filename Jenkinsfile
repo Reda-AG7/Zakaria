@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'CPP_DOCKER_AGENT'
+    }
 
     triggers {
         pollSCM 'H/10 * * * *'
@@ -13,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building ${env.APP_NAME}"
-                sh 'g++ -std=c++20 -o main main.cpp'
+                sh 'g++ -std=c++20 -o main main.cpp -luuid'
             }
         }
 
@@ -27,7 +29,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'No deployment has been configured yet'
-                // Add the real deployment command here.
             }
         }
     }
