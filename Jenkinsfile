@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building ${env.APP_NAME}"
-                sh 'g++ -std=c++20 -o main main.cpp Account.cpp'
+                sh 'g++ -std=c++20 -o main main.cpp Account.hpp'
             }
         }
 
