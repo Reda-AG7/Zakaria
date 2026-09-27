@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        pollSCM 'H/10 * * * *'
+    }
+
     environment {
         APP_NAME = 'MyApplication'
     }
