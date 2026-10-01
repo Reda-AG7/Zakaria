@@ -23,6 +23,21 @@ pipeline {
             steps {
                 echo 'Testing the application'
                 sh './main'
+
+                stages {
+                    stage('test 1') {
+                        echo 'Test 1'
+                    }
+
+                    stage('test 2') {
+                        echo 'Test 2'
+                    }
+
+                    stage('test 3') {
+                        echo 'Test 3'
+                    }
+                }
+
             }
         }
 
