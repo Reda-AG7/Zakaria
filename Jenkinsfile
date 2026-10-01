@@ -12,6 +12,7 @@ pipeline {
     }
 
     stages {
+
         stage('Build') {
             steps {
                 echo "Building ${env.APP_NAME}"
@@ -20,24 +21,32 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
-                echo 'Testing the application'
-                sh './main'
+            stages {
 
-                stages {
-                    stage('test 1') {
-                        echo 'Test 1'
-                    }
-
-                    stage('test 2') {
-                        echo 'Test 2'
-                    }
-
-                    stage('test 3') {
-                        echo 'Test 3'
+                stage('Run Application') {
+                    steps {
+                        echo 'Testing the application'
+                        sh './main'
                     }
                 }
 
+                stage('Test 1') {
+                    steps {
+                        echo 'Test 1'
+                    }
+                }
+
+                stage('Test 2') {
+                    steps {
+                        echo 'Test 2'
+                    }
+                }
+
+                stage('Test 3') {
+                    steps {
+                        echo 'Test 3'
+                    }
+                }
             }
         }
 
