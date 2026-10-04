@@ -3,9 +3,9 @@ pipeline {
         label 'CPP_DOCKER_AGENT'
     }
 
-    triggers {
-        pollSCM 'H/10 * * * *'
-    }
+    // triggers {
+    //     pollSCM 'H/10 * * * *'
+    // }
 
     environment {
         APP_NAME = 'MyApplication'
